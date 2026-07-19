@@ -72,6 +72,10 @@ module.exports = grammar({
     /\s/,
   ],
 
+  externals: $ => [
+    $._try,
+  ],
+
   inline: $ => [
     $._type,
     $._type_identifier,
@@ -481,6 +485,7 @@ module.exports = grammar({
     _statement: $ => choice(
       $._declaration,
       $._simple_statement,
+      $.try_statement,
       $.return_statement,
       $.go_statement,
       $.defer_statement,
@@ -575,7 +580,25 @@ module.exports = grammar({
 
     go_statement: $ => seq('go', $._expression),
 
-    defer_statement: $ => seq('defer', $._expression),
+    try_statement: $ => seq(
+      alias($._try, 'try'),
+      choice(
+        seq(
+          commaSep1(field('left', $.identifier)),
+          ':=',
+          field('right', $.expression_list),
+        ),
+        field('right', $._expression),
+      ),
+    ),
+
+    defer_statement: $ => seq(
+      'defer',
+      choice(
+        field('body', $.block),
+        $._expression,
+      ),
+    ),
 
     if_statement: $ => seq(
       'if',

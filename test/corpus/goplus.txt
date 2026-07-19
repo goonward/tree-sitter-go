@@ -54,3 +54,131 @@ type Decision enum { Allow; Deny { Reason string } }
           (field_declaration
             name: (field_identifier)
             type: (type_identifier)))))))
+
+==================
+Try statements
+==================
+
+func run() error {
+	try value, count := load()
+	try save()
+	return nil
+}
+
+---
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    result: (type_identifier)
+    body: (block
+      (statement_list
+        (try_statement
+          left: (identifier)
+          left: (identifier)
+          right: (expression_list
+            (call_expression
+              function: (identifier)
+              arguments: (argument_list))))
+        (try_statement
+          right: (call_expression
+            function: (identifier)
+            arguments: (argument_list)))
+        (return_statement
+          (expression_list
+            (nil)))))))
+
+==================
+Try remains a contextual keyword
+==================
+
+func f() {
+	try := 1
+	try++
+	try()
+	_ = try
+}
+
+---
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (statement_list
+        (short_var_declaration
+          left: (expression_list
+            (identifier))
+          right: (expression_list
+            (int_literal)))
+        (inc_statement
+          (identifier))
+        (expression_statement
+          (call_expression
+            function: (identifier)
+            arguments: (argument_list)))
+        (assignment_statement
+          left: (expression_list
+            (identifier))
+          right: (expression_list
+            (identifier)))))))
+
+==================
+Try separators
+==================
+
+func f() {
+	try /* propagate */ service.Save()
+	try
+	save()
+}
+
+---
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (statement_list
+        (try_statement
+          (comment)
+          right: (call_expression
+            function: (selector_expression
+              operand: (identifier)
+              field: (field_identifier))
+            arguments: (argument_list)))
+        (expression_statement
+          (identifier))
+        (expression_statement
+          (call_expression
+            function: (identifier)
+            arguments: (argument_list)))))))
+
+==================
+Defer block
+==================
+
+func f() {
+	defer {
+		cleanup()
+	}
+}
+
+---
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (statement_list
+        (defer_statement
+          body: (block
+            (statement_list
+              (expression_statement
+                (call_expression
+                  function: (identifier)
+                  arguments: (argument_list))))))))))

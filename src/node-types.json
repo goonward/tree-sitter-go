@@ -254,6 +254,10 @@
         "named": true
       },
       {
+        "type": "try_statement",
+        "named": true
+      },
+      {
         "type": "type_declaration",
         "named": true
       },
@@ -787,10 +791,21 @@
   {
     "type": "defer_statement",
     "named": true,
-    "fields": {},
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "_expression",
@@ -2201,6 +2216,36 @@
     }
   },
   {
+    "type": "try_statement",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_expression",
+            "named": true
+          },
+          {
+            "type": "expression_list",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "type_alias",
     "named": true,
     "fields": {
@@ -3040,6 +3085,10 @@
   {
     "type": "true",
     "named": true
+  },
+  {
+    "type": "try",
+    "named": false
   },
   {
     "type": "type",
