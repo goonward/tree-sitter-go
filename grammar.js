@@ -168,6 +168,7 @@ module.exports = grammar({
 
     _declaration: $ => choice(
       $.const_declaration,
+      $.enum_declaration,
       $.type_declaration,
       $.var_declaration,
     ),
@@ -292,6 +293,29 @@ module.exports = grammar({
       field('name', $._type_identifier),
       field('type_parameters', optional($.type_parameter_list)),
       field('type', $._type),
+    ),
+
+    enum_declaration: $ => seq(
+      'type',
+      field('name', $._type_identifier),
+      field('type_parameters', optional($.type_parameter_list)),
+      'enum',
+      field('body', $.enum_body),
+    ),
+
+    enum_body: $ => seq(
+      '{',
+      optional(seq(
+        $.enum_variant,
+        repeat(seq(terminator, $.enum_variant)),
+        optional(terminator),
+      )),
+      '}',
+    ),
+
+    enum_variant: $ => seq(
+      field('name', $._type_identifier),
+      field('fields', optional($.field_declaration_list)),
     ),
 
     field_name_list: $ => commaSep1($._field_identifier),

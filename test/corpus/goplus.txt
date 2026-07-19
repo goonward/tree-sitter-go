@@ -1,0 +1,56 @@
+==================
+Enum declaration
+==================
+
+type Result[T any] enum {
+	Ok { Value T }
+	Err { Err error }
+	None
+}
+
+---
+
+(source_file
+  (enum_declaration
+    name: (type_identifier)
+    type_parameters: (type_parameter_list
+      (type_parameter_declaration
+        name: (identifier)
+        type: (type_constraint
+          (type_identifier))))
+    body: (enum_body
+      (enum_variant
+        name: (type_identifier)
+        fields: (field_declaration_list
+          (field_declaration
+            name: (field_identifier)
+            type: (type_identifier))))
+      (enum_variant
+        name: (type_identifier)
+        fields: (field_declaration_list
+          (field_declaration
+            name: (field_identifier)
+            type: (type_identifier))))
+      (enum_variant
+        name: (type_identifier)))))
+
+==================
+Semicolon-separated enum variants
+==================
+
+type Decision enum { Allow; Deny { Reason string } }
+
+---
+
+(source_file
+  (enum_declaration
+    name: (type_identifier)
+    body: (enum_body
+      (enum_variant
+        name: (type_identifier))
+      (enum_variant
+        name: (type_identifier)
+        fields: (field_declaration_list
+          (field_declaration
+            name: (field_identifier)
+            type: (type_identifier)))))))
