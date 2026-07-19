@@ -73,7 +73,7 @@ module.exports = grammar({
   ],
 
   externals: $ => [
-    $._try,
+    $.try_keyword,
   ],
 
   inline: $ => [
@@ -581,7 +581,7 @@ module.exports = grammar({
     go_statement: $ => seq('go', $._expression),
 
     try_statement: $ => seq(
-      alias($._try, 'try'),
+      $.try_keyword,
       choice(
         seq(
           commaSep1(field('left', $.identifier)),

@@ -2880,13 +2880,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_try"
-          },
-          "named": false,
-          "value": "try"
+          "type": "SYMBOL",
+          "name": "try_keyword"
         },
         {
           "type": "CHOICE",
@@ -7308,7 +7303,7 @@
   "externals": [
     {
       "type": "SYMBOL",
-      "name": "_try"
+      "name": "try_keyword"
     }
   ],
   "inline": [

@@ -2243,6 +2243,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "try_keyword",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -3087,8 +3097,8 @@
     "named": true
   },
   {
-    "type": "try",
-    "named": false
+    "type": "try_keyword",
+    "named": true
   },
   {
     "type": "type",

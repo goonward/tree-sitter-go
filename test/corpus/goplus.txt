@@ -75,6 +75,7 @@ func run() error {
     body: (block
       (statement_list
         (try_statement
+          (try_keyword)
           left: (identifier)
           left: (identifier)
           right: (expression_list
@@ -82,6 +83,7 @@ func run() error {
               function: (identifier)
               arguments: (argument_list))))
         (try_statement
+          (try_keyword)
           right: (call_expression
             function: (identifier)
             arguments: (argument_list)))
@@ -144,6 +146,7 @@ func f() {
     body: (block
       (statement_list
         (try_statement
+          (try_keyword)
           (comment)
           right: (call_expression
             function: (selector_expression

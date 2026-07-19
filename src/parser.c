@@ -115,7 +115,7 @@ enum ts_symbol_identifiers {
   sym_false = 93,
   sym_iota = 94,
   sym_comment = 95,
-  sym__try = 96,
+  sym_try_keyword = 96,
   sym_source_file = 97,
   sym_package_clause = 98,
   sym_import_declaration = 99,
@@ -345,7 +345,7 @@ static const char * const ts_symbol_names[] = {
   [sym_false] = "false",
   [sym_iota] = "iota",
   [sym_comment] = "comment",
-  [sym__try] = "try",
+  [sym_try_keyword] = "try_keyword",
   [sym_source_file] = "source_file",
   [sym_package_clause] = "package_clause",
   [sym_import_declaration] = "import_declaration",
@@ -575,7 +575,7 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_false] = sym_false,
   [sym_iota] = sym_iota,
   [sym_comment] = sym_comment,
-  [sym__try] = sym__try,
+  [sym_try_keyword] = sym_try_keyword,
   [sym_source_file] = sym_source_file,
   [sym_package_clause] = sym_package_clause,
   [sym_import_declaration] = sym_import_declaration,
@@ -1093,9 +1093,9 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
-  [sym__try] = {
+  [sym_try_keyword] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
   [sym_source_file] = {
     .visible = true,
@@ -7196,7 +7196,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(1),
     [sym_iota] = ACTIONS(1),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(1),
+    [sym_try_keyword] = ACTIONS(1),
   },
   [STATE(1)] = {
     [sym_source_file] = STATE(1386),
@@ -7312,7 +7312,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(2)] = {
     [sym_package_clause] = STATE(1143),
@@ -7427,7 +7427,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(3)] = {
     [sym_package_clause] = STATE(1253),
@@ -7542,7 +7542,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(182),
     [sym_iota] = ACTIONS(182),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(188),
+    [sym_try_keyword] = ACTIONS(188),
   },
   [STATE(4)] = {
     [sym__declaration] = STATE(1017),
@@ -7654,7 +7654,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(5)] = {
     [sym__declaration] = STATE(1017),
@@ -7766,7 +7766,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(6)] = {
     [sym__declaration] = STATE(1017),
@@ -7878,7 +7878,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(7)] = {
     [sym__declaration] = STATE(1017),
@@ -7990,7 +7990,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(8)] = {
     [sym__declaration] = STATE(1017),
@@ -8102,7 +8102,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(9)] = {
     [sym__declaration] = STATE(1017),
@@ -8213,7 +8213,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(10)] = {
     [sym__declaration] = STATE(1017),
@@ -8324,7 +8324,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(11)] = {
     [sym__declaration] = STATE(1017),
@@ -8434,7 +8434,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(12)] = {
     [sym__declaration] = STATE(1017),
@@ -8544,7 +8544,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(13)] = {
     [sym__declaration] = STATE(1017),
@@ -8654,7 +8654,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(14)] = {
     [sym__declaration] = STATE(1017),
@@ -8764,7 +8764,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(15)] = {
     [sym__declaration] = STATE(1017),
@@ -8874,7 +8874,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(16)] = {
     [sym__declaration] = STATE(1017),
@@ -8984,7 +8984,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(17)] = {
     [sym__declaration] = STATE(1017),
@@ -9094,7 +9094,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(18)] = {
     [sym__declaration] = STATE(1017),
@@ -9204,7 +9204,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(19)] = {
     [sym__declaration] = STATE(1017),
@@ -9311,7 +9311,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(20)] = {
     [sym__declaration] = STATE(1017),
@@ -9418,7 +9418,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(73),
     [sym_iota] = ACTIONS(73),
     [sym_comment] = ACTIONS(3),
-    [sym__try] = ACTIONS(77),
+    [sym_try_keyword] = ACTIONS(77),
   },
   [STATE(21)] = {
     [sym_expression_list] = STATE(824),
@@ -28812,7 +28812,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3), 1,
       sym_comment,
     ACTIONS(81), 18,
-      sym__try,
+      sym_try_keyword,
       ts_builtin_sym_end,
       anon_sym_SEMI,
       anon_sym_LPAREN,
@@ -62487,16 +62487,16 @@ static const TSParseActionEntry ts_parse_actions[] = {
 };
 
 enum ts_external_scanner_symbol_identifiers {
-  ts_external_token__try = 0,
+  ts_external_token_try_keyword = 0,
 };
 
 static const TSSymbol ts_external_scanner_symbol_map[EXTERNAL_TOKEN_COUNT] = {
-  [ts_external_token__try] = sym__try,
+  [ts_external_token_try_keyword] = sym_try_keyword,
 };
 
 static const bool ts_external_scanner_states[2][EXTERNAL_TOKEN_COUNT] = {
   [1] = {
-    [ts_external_token__try] = true,
+    [ts_external_token_try_keyword] = true,
   },
 };
 

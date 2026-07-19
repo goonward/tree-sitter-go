@@ -28,32 +28,32 @@ static bool skip_separator(TSLexer *lexer) {
         while (lexer->lookahead == ' ' || lexer->lookahead == '\t' ||
                lexer->lookahead == '\r' || lexer->lookahead == '\f') {
             separated = true;
-            skip(lexer);
+            advance(lexer);
         }
 
         if (lexer->lookahead != '/') {
             return separated;
         }
-        skip(lexer);
+        advance(lexer);
         if (lexer->lookahead != '*') {
             return false;
         }
 
         separated = true;
-        skip(lexer);
+        advance(lexer);
         for (;;) {
             if (lexer->lookahead == 0 || lexer->lookahead == '\n') {
                 return false;
             }
             if (lexer->lookahead == '*') {
-                skip(lexer);
+                advance(lexer);
                 if (lexer->lookahead == '/') {
-                    skip(lexer);
+                    advance(lexer);
                     break;
                 }
                 continue;
             }
-            skip(lexer);
+            advance(lexer);
         }
     }
 }
